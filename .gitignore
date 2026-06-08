@@ -10,5 +10,6 @@ dist/
 venv/
 *.log
 packaging/aur/*.tar.gz
+packaging/aur/*.pkg.tar.zst
 packaging/aur/pkg/
 packaging/aur/src/

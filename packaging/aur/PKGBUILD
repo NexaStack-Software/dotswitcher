@@ -12,12 +12,12 @@ source=("$pkgname-$pkgver.tar.gz::https://codeload.github.com/NexaStack-Software
 sha256sums=("5707ecfb8fbee3ef89bf3aec3744dc8a82e3ccf0f9b7ed91bb4e066d053d1fab")
 
 build() {
-  cd "$pkgname-$pkgver"
+  cd "dotswitcher-$pkgver"
   python -m build --wheel --no-isolation
 }
 
 package() {
-  cd "$pkgname-$pkgver"
+  cd "dotswitcher-$pkgver"
   python -m installer --destdir="$pkgdir" dist/*.whl
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
   install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
