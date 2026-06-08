@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dotfileswitcher"
+version = "0.1.0"
+description = "Install, update, and switch multiple Hyprland dotfile distributions side by side."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [
+  { name = "Emilian" }
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2",
+  "installer>=0.7",
+  "mypy>=1.14",
+  "pytest>=8",
+  "ruff>=0.8",
+  "twine>=5.0",
+]
+
+[project.scripts]
+dotfileswitcher = "dotfileswitcher.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+dotfileswitcher = ["py.typed", "profiles/*.toml"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src/dotfileswitcher"]

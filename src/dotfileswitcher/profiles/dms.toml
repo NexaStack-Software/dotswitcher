@@ -1,0 +1,39 @@
+notes = [
+  "DMS is a shell project; adapter refinement should map the exact upstream install layout."
+]
+
+[profile]
+name = "dms"
+display_name = "DankMaterialShell"
+
+[source]
+type = "git"
+url = "https://github.com/AvengeMedia/DankMaterialShell.git"
+branch = "main"
+update_policy = "upstream"
+
+[[links]]
+source = ".config/quickshell/dms"
+target = "~/.config/quickshell/dms"
+required = false
+
+[[links]]
+source = ".config/hypr"
+target = "~/.config/hypr"
+required = false
+
+[commands]
+stop = [
+  ["pkill", "-x", "qs"],
+  ["pkill", "-x", "waybar"],
+  ["pkill", "-x", "rofi"]
+]
+start = [
+  ["hyprctl", "reload"],
+  ["qs", "-c", "dms"]
+]
+
+[health]
+checks = [
+  { type = "command", value = "hyprctl version >/dev/null" }
+]

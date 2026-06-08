@@ -1,0 +1,46 @@
+[profile]
+name = "jakoolit"
+display_name = "JaKooLit Hyprland Dots"
+
+[source]
+type = "git"
+url = "https://github.com/JaKooLit/Hyprland-Dots.git"
+branch = "main"
+update_policy = "upstream"
+
+[[links]]
+source = ".config/hypr"
+target = "~/.config/hypr"
+
+[[links]]
+source = ".config/waybar"
+target = "~/.config/waybar"
+required = false
+
+[[links]]
+source = ".config/rofi"
+target = "~/.config/rofi"
+required = false
+
+[[links]]
+source = ".config/swaync"
+target = "~/.config/swaync"
+required = false
+
+[commands]
+stop = [
+  ["pkill", "-x", "waybar"],
+  ["pkill", "-x", "rofi"],
+  ["pkill", "-x", "qs"],
+  ["pkill", "-x", "swaync"]
+]
+start = [
+  ["hyprctl", "reload"],
+  ["waybar"]
+]
+
+[health]
+checks = [
+  { type = "source_path_exists", value = ".config/hypr" },
+  { type = "command", value = "hyprctl version >/dev/null" }
+]

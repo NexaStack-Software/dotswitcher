@@ -1,0 +1,44 @@
+notes = [
+  "Caelestia has separate shell/cli packaging; adapter refinement should support split repositories."
+]
+
+[profile]
+name = "caelestia"
+display_name = "Caelestia Dots"
+
+[source]
+type = "git"
+url = "https://github.com/caelestia-dots/caelestia.git"
+branch = "main"
+update_policy = "upstream"
+
+[[links]]
+source = ".config/hypr"
+target = "~/.config/hypr"
+required = false
+
+[[links]]
+source = ".config/quickshell/caelestia"
+target = "~/.config/quickshell/caelestia"
+required = false
+
+[[links]]
+source = ".config/caelestia"
+target = "~/.config/caelestia"
+required = false
+
+[commands]
+stop = [
+  ["pkill", "-x", "qs"],
+  ["pkill", "-x", "waybar"],
+  ["pkill", "-x", "rofi"]
+]
+start = [
+  ["hyprctl", "reload"],
+  ["caelestia", "shell"]
+]
+
+[health]
+checks = [
+  { type = "command", value = "hyprctl version >/dev/null" }
+]

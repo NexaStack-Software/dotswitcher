@@ -1,0 +1,6 @@
+include LICENSE
+include README.md
+include SPEC.md
+include pyproject.toml
+recursive-include packaging *
+recursive-include tests *.py

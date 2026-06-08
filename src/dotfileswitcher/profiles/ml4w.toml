@@ -1,0 +1,49 @@
+notes = [
+  "ML4W upstream layout may require adapter refinement for installer-managed releases."
+]
+
+[profile]
+name = "ml4w"
+display_name = "ML4W Dotfiles"
+
+[source]
+type = "git"
+url = "https://github.com/mylinuxforwork/dotfiles.git"
+branch = "main"
+update_policy = "upstream"
+
+[[links]]
+source = ".config/hypr"
+target = "~/.config/hypr"
+
+[[links]]
+source = ".config/waybar"
+target = "~/.config/waybar"
+required = false
+
+[[links]]
+source = ".config/rofi"
+target = "~/.config/rofi"
+required = false
+
+[[links]]
+source = ".config/quickshell"
+target = "~/.config/quickshell"
+required = false
+
+[commands]
+stop = [
+  ["pkill", "-x", "waybar"],
+  ["pkill", "-x", "rofi"],
+  ["pkill", "-x", "qs"],
+  ["pkill", "-x", "swaync"]
+]
+start = [
+  ["hyprctl", "reload"]
+]
+
+[health]
+checks = [
+  { type = "source_path_exists", value = ".config/hypr" },
+  { type = "command", value = "hyprctl version >/dev/null" }
+]

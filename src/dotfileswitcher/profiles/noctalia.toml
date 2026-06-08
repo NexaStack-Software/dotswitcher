@@ -1,0 +1,30 @@
+[profile]
+name = "noctalia"
+display_name = "Noctalia Shell"
+
+[source]
+type = "git"
+url = "https://github.com/noctalia-dev/noctalia-shell.git"
+branch = "main"
+update_policy = "upstream"
+
+[[links]]
+source = "."
+target = "~/.config/quickshell/noctalia-shell"
+
+[commands]
+stop = [
+  ["pkill", "-x", "qs"],
+  ["pkill", "-x", "waybar"],
+  ["pkill", "-x", "rofi"]
+]
+start = [
+  ["hyprctl", "reload"],
+  ["qs", "-p", "~/.config/quickshell/noctalia-shell"]
+]
+
+[health]
+checks = [
+  { type = "source_path_exists", value = "shell.qml" },
+  { type = "command", value = "hyprctl version >/dev/null" }
+]
