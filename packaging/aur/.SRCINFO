@@ -1,0 +1,17 @@
+pkgbase = dotfileswitcher
+	pkgdesc = Install, update, and switch multiple Hyprland dotfile distributions side by side
+	pkgver = 0.1.0
+	pkgrel = 1
+	url = https://github.com/NexaStack-Software/dotswitcher
+	arch = any
+	license = MIT
+	makedepends = python-build
+	makedepends = python-installer
+	makedepends = python-wheel
+	depends = python
+	depends = git
+	depends = hyprland
+	source = dotfileswitcher-0.1.0.tar.gz::https://codeload.github.com/NexaStack-Software/dotswitcher/tar.gz/refs/tags/v0.1.0
+	sha256sums = 5707ecfb8fbee3ef89bf3aec3744dc8a82e3ccf0f9b7ed91bb4e066d053d1fab
+
+pkgname = dotfileswitcher

@@ -8,8 +8,8 @@ url="https://github.com/NexaStack-Software/dotswitcher"
 license=("MIT")
 depends=("python" "git" "hyprland")
 makedepends=("python-build" "python-installer" "python-wheel")
-source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
-sha256sums=("SKIP")
+source=("$pkgname-$pkgver.tar.gz::https://codeload.github.com/NexaStack-Software/dotswitcher/tar.gz/refs/tags/v$pkgver")
+sha256sums=("5707ecfb8fbee3ef89bf3aec3744dc8a82e3ccf0f9b7ed91bb4e066d053d1fab")
 
 build() {
   cd "$pkgname-$pkgver"
